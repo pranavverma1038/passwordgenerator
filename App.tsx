@@ -164,8 +164,17 @@ export default function App() {
           </View>
         </>
        )}
-     </Formik>
+            </Formik>
         </View>
+        {isPassGenerated ? (
+            <View style={[styles.card,styles.cardElevated]}>
+              <Text style={styles.subTitle}>Result:</Text>
+              <Text style={styles.description}>Long Press To Copy</Text>
+              <Text 
+              selectable = {true}
+              style={styles.generatedPassword}>{password}</Text>
+            </View>
+        ) : null}
       </SafeAreaView>
     </ScrollView>
   )
@@ -251,9 +260,10 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 6,
     marginHorizontal: 12,
+   
   },
   cardElevated: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'lightgray',
     elevation: 1,
     shadowOffset: {
       width: 1,
