@@ -9,7 +9,7 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 const passwordSchema = Yup.object().shape({
     passwordLength: Yup.number()
     .min(4,'Should be minimum of 4 characters')
-    .max(16,'Shoud be maximum of 16 characters')
+    .max(30,'Shoud be maximum of 16 characters')
     .required('Length is required')
   })
 
@@ -113,40 +113,37 @@ export default function App() {
           <View style={styles.inputWrapper}>
             <Text style={styles.heading}>Includes Lowercase</Text>
             <BouncyCheckbox
-            
-            disableBuiltIState
-            isChecked={lowerCase}
-             onPress={() => setLowerCase(!lowerCase)}
-             fillColor="#29AB87"
+              useBuiltInState={false}
+              isChecked={lowerCase}
+              onPress={() => setLowerCase(!lowerCase)}
+              fillColor="#29AB87"
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.heading}>Include Uppercase </Text>
             <BouncyCheckbox
-             
-            disableBuiltIState
-            isChecked={upperCase}
-             onPress={() => setUppercase(!upperCase)}
-             fillColor="#FED85D"
+              useBuiltInState={false}
+              isChecked={upperCase}
+              onPress={() => setUppercase(!upperCase)}
+              fillColor="#FED85D"
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.heading}>Include Numbers</Text>
             <BouncyCheckbox
-            disableBuiltIState
-            isChecked={numbers}
-             onPress={() => setNumbers(!numbers)}
-             fillColor="#C9A0DC"
+              useBuiltInState={false}
+              isChecked={numbers}
+              onPress={() => setNumbers(!numbers)}
+              fillColor="#C9A0DC"
             />
           </View>
           <View style={styles.inputWrapper}>
             <Text style={styles.heading}>Include Symbols</Text>
             <BouncyCheckbox
-             
-            disableBuiltIState
-            isChecked={symbols}
-             onPress={() => setSymbols(!symbols)}
-             fillColor="#FC80A5"
+              useBuiltInState={false}
+              isChecked={symbols}
+              onPress={() => setSymbols(!symbols)}
+              fillColor="#FC80A5"
             />
           </View>
           <View style={styles.formActions}>
@@ -204,10 +201,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    gap:142
+    gap:10,
+    paddingHorizontal: 10
   },
   inputColumn: {
     flexDirection: 'column',
+    flex: 1
   },
   inputStyle: {
     padding: 8,
@@ -219,6 +218,7 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 12,
     color: '#ff0d10',
+    marginTop: 4
   },
   formActions: {
     flexDirection: 'row',
